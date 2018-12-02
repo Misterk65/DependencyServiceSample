@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DependencyServiceSample"
+             x:Class="DependencyServiceSample.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label x:Name="lblProvider" Text="Welcome to Xamarin.Forms!" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        <Button x:Name="CallButton"  Text="Get Provider Name" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Clicked="Button_OnClicked"/>
+    </StackLayout>
+
+</ContentPage>
