@@ -1,15 +1,197 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:DependencyServiceSample"
              x:Class="DependencyServiceSample.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label x:Name="lblProvider" Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-        <Button x:Name="CallButton"  Text="Get Provider Name" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Clicked="Button_OnClicked"/>
+
+        <Grid x:Name="LiveDataLabel" Padding="5,0,5,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="LblLiveData" Text="Live Drive Data" HorizontalTextAlignment="Start" FontSize="Medium"/>
+        </Grid>
+        
+        <BoxView
+            HorizontalOptions="Fill"
+            HeightRequest="3"
+            Color="Accent"
+            />
+
+        <Grid x:Name="LiveDataDisplay" Padding="15,0,15,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <StackLayout Grid.Row="0" Grid.Column="0">
+                <Label x:Name="LblCurrentSpeed" Text="Current Speed" HorizontalTextAlignment="Start" FontSize="Small"/>
+                <Label x:Name="LbLKph" Text="0.0 Kph" HorizontalTextAlignment="Start" FontSize="Medium"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="0" Grid.Column="1">
+                <Label x:Name="LblCurrentHeading" Text="Current Heading" HorizontalTextAlignment="Start" FontSize="Small"/>
+                <Label x:Name="LbLHnd" Text="0.0 deg." HorizontalTextAlignment="Start" FontSize="Medium"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Grid.Column="0">
+                <Label x:Name="LblDistanceTraveled" Text="Distance Travelled" HorizontalTextAlignment="Start" FontSize="Small"/>
+                <Label x:Name="LbLKm" Text="0.0 Km" HorizontalTextAlignment="Start" FontSize="Medium"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Grid.Column="1">
+                <Label x:Name="LblPoi" Text="Point of Interest" HorizontalTextAlignment="Start" FontSize="Small"/>
+                <Button x:Name="BtnPoi" Text="POI" Clicked="BtnPoi_OnClicked" Pressed="BtnPoi_OnPressed"/>
+            </StackLayout>
+        </Grid>
+
+        <Grid x:Name="LiveNwDataLabel" Padding="5,0,5,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="LblLiveNwData" Text="Live Network Data" HorizontalTextAlignment="Start" FontSize="Medium"/>
+        </Grid>
+
+        <BoxView
+            HorizontalOptions="Fill"
+            HeightRequest="3"
+            Color="Accent"
+        />
+
+        <Grid x:Name="LiveNwDataDisplay" Padding="5,15,5,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <StackLayout Grid.Row="0" Grid.Column="0" Padding="0,0,0,10">
+                <Label x:Name="LblLocation" Text="Location" HorizontalTextAlignment="Start" FontSize="Small" TextColor="DodgerBlue"/>
+                <BoxView
+                    HorizontalOptions="Fill"
+                    HeightRequest="1"
+                    Color="DodgerBlue"
+                />
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Grid.Column="0" Padding="0,0,0,10">
+                <Label x:Name="LblProvider" Text="Provider Info" HorizontalTextAlignment="Start" FontSize="Small" TextColor="DodgerBlue"/>
+                <BoxView
+                    HorizontalOptions="Fill"
+                    HeightRequest="1"
+                    Color="DodgerBlue"
+                />
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Grid.Column="0">
+                <Label x:Name="LblSigStrength" Text="Signal Strength" HorizontalTextAlignment="Start" FontSize="Small" TextColor="DodgerBlue"/>
+                <BoxView
+                    HorizontalOptions="Fill"
+                    HeightRequest="1"
+                    Color="DodgerBlue"
+                />
+            </StackLayout>
+
+        </Grid>
+
+        <Grid x:Name="OperationLabel" Padding="5,0,5,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="LblOperation" Text="Operation" HorizontalTextAlignment="Start" FontSize="Medium"/>
+        </Grid>
+
+        <BoxView
+            HorizontalOptions="Fill"
+            HeightRequest="3"
+            Color="Accent"
+        />
+
+        <Grid x:Name="OpSectionLabel" Padding="5,15,5,15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Switch x:Name="SwitchTimeDistance"
+                    HorizontalOptions="Fill"
+                    WidthRequest="100"
+                    Grid.Row="0" 
+                    Grid.Column="1"
+                    />
+            <Switch x:Name="SwitchLogging"
+                    HorizontalOptions="Fill"
+                    WidthRequest="100"
+                    Grid.Row="0" 
+                    Grid.Column="4"
+            />
+            <Label x:Name="LblTime" Text="Time" HorizontalTextAlignment="End" FontSize="Micro" Grid.Row="0" Grid.Column="0"/>
+            <Label x:Name="LblDistance" Text="Distance" HorizontalTextAlignment="Start" FontSize="Micro" Grid.Row="0" Grid.Column="2"/>
+            <Label x:Name="LblLogOn" Text="Logging ON" HorizontalTextAlignment="End" FontSize="Micro" Grid.Row="0" Grid.Column="3"/>
+            <Label x:Name="LblLogOff" Text="OFF" HorizontalTextAlignment="Start" FontSize="Micro" Grid.Row="0" Grid.Column="5"/>
+        </Grid>
+
+        <Grid x:Name="ControlGrid" RowSpacing="1" ColumnSpacing="1" Padding="5,0,5,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Btn1" Clicked="Btn1_OnClicked" Text="Save Interim Log" FontSize="Small" Grid.Row="0" Grid.Column="0"  />
+            <Button x:Name="Btn2" Clicked="Btn2_OnClicked" Text="Save Log" FontSize="Small" Grid.Row="0" Grid.Column="1"  />
+            <Button x:Name="Btn3" Clicked="Btn3_OnClicked" Text="Start Rec." FontSize="Small" Grid.Row="0" Grid.Column="2"  />
+        </Grid>
+
+        <BoxView
+            HorizontalOptions="Fill"
+            HeightRequest="3"
+            Color="Accent"
+        />
+
+        <Grid x:Name="VersionLabel" Padding="5,5,5,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="LblVersion" Text="Version" HorizontalTextAlignment="Start" FontSize="Micro"/>
+        </Grid>
     </StackLayout>
+
 
 </ContentPage>

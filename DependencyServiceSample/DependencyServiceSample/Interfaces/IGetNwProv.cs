@@ -7,5 +7,6 @@ namespace DependencyServiceSample.Interfaces
     public interface IGetNwProv
     {
         string GetProviderName();
+
     }
 }

@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
     <NuGetPackageImportStamp>
@@ -62,6 +61,12 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Implementations\GetDistTravImplementation.cs" />
+    <Compile Include="Implementations\GetLiveHndImplementation.cs" />
+    <Compile Include="Implementations\GetLiveKphImplementation.cs" />
+    <Compile Include="Implementations\GetLocationImplementation.cs" />
+    <Compile Include="Implementations\GetProvInfImplementation.cs" />
+    <Compile Include="Implementations\GetSigStrenImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -95,7 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DependencyServiceSample\DependencyServiceSample.csproj">
-      <Project>{3A038536-A8C2-426E-A1F2-6CF6A2E0FCB9}</Project>
+      <Project>{C5BF6709-9978-4A76-9DBF-F9A2A0B1FB6F}</Project>
       <Name>DependencyServiceSample</Name>
     </ProjectReference>
   </ItemGroup>

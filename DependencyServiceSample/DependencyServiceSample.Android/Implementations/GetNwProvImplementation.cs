@@ -1,9 +1,8 @@
-﻿using Android.Telecom;
-using Android.Telephony;
+﻿using Android.Telephony;
 using DependencyServiceSample.Droid.Implementations;
 using Xamarin.Forms;
 
-[assembly: Xamarin.Forms.Dependency(typeof(GetNwProvImplementation))]
+[assembly: Dependency(typeof(GetNwProvImplementation))]
 
 namespace DependencyServiceSample.Droid.Implementations
 {
