@@ -9,7 +9,11 @@ namespace DependencyServiceSample.Droid.Implementations
     {
          public string GetProviderInfo()
         {
-            throw new NotImplementedException();
+            string ProvInf = "MCC " + FileOperations.InformationElementMcc 
+            + " MNC " + FileOperations.InformationElementMnc + " - " + 
+                FileOperations.InformationElementNwType;
+
+            return ProvInf;
         }
     }
 }

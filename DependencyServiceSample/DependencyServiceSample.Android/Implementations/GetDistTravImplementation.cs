@@ -11,7 +11,7 @@ namespace DependencyServiceSample.Droid.Implementations
 
         public string GetDistanceTRavelled()
         {
-            throw new NotImplementedException();
+            return FileOperations.InformationElementDistance.ToString();
         }
     }
 }

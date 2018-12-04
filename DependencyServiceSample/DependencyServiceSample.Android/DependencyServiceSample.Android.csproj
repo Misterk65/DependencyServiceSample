@@ -67,6 +67,7 @@
     <Compile Include="Implementations\GetLocationImplementation.cs" />
     <Compile Include="Implementations\GetProvInfImplementation.cs" />
     <Compile Include="Implementations\GetSigStrenImplementation.cs" />
+    <Compile Include="FileOperations.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

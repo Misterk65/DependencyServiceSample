@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Timers;
 using DependencyServiceSample.Interfaces;
 using Xamarin.Forms;
 
@@ -6,9 +7,25 @@ namespace DependencyServiceSample
 {
     public partial class MainPage : ContentPage
     {
+        private static System.Timers.Timer aTimer;
+
         public MainPage()
         {
             InitializeComponent();
+            SetTimer();
+        }
+
+        private void SetTimer()
+        {
+            // Create a timer with a two second interval.
+            aTimer = new Timer(1000);
+            // Hook up the Elapsed event for the timer. 
+            aTimer.Elapsed += OnTimedEvent;
+            aTimer.Enabled = true;
+        }
+
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
             RefreshUiData();
         }
 
@@ -39,16 +56,60 @@ namespace DependencyServiceSample
 
         public void RefreshUiData()
         {
-            var bat = DependencyService.Get<IUiRefresh>();
-            if (bat.GetProviderName() != null)
+            var nwProv = DependencyService.Get<IGetNwProv>();
+            var distTrav = DependencyService.Get<IGetDistTrav>();
+            var nwProvInf = DependencyService.Get<IGetProvInf>();
+            var sigStren = DependencyService.Get<IGetSigStren>();
+            var curLoc = DependencyService.Get<IGetLocation>();
+
+            if (curLoc.GetLocation() !=null)
+            {
+                LblLocation.Text = "Current Location: " + curLoc.GetLocation();
+            }
+            else
+            {
+                LblLocation.Text = "Current Location";
+            }
+
+            if (nwProv.GetProviderName() != null)
             {
                 LblLiveNwData.Text = "Live Network Data - "
-                + bat.GetProviderName();
+                + nwProv.GetProviderName();
             }
             else
             {
                 LblLiveNwData.Text = "Live Network Data";
             }
+
+            if(distTrav.GetDistanceTRavelled() !=null)
+            {
+                LbLKm.Text = distTrav.GetDistanceTRavelled() + " Km";
+            }
+            else
+            {
+                LbLKm.Text = "0.0 Km";
+            }
+
+            if (nwProvInf.GetProviderInfo() !=null ) 
+            {
+                LblProvider.Text =  "Provider Info: " +
+                 nwProvInf.GetProviderInfo();
+            }
+            else
+            {
+                LblProvider.Text = "Provider Info";
+            }
+
+            if(sigStren.GetSignalStrength() != null)
+            {
+                LblSigStrength.Text = "Signal Strength: " + 
+                sigStren.GetSignalStrength();
+            }
+            else
+            {
+                LblSigStrength.Text = "Signal Strength";
+            }
+
         }
     }
 }

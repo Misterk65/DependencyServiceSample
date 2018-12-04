@@ -9,7 +9,7 @@ namespace DependencyServiceSample.Droid.Implementations
     {
          public string GetLocation()
         {
-            throw new NotImplementedException();
+            return FileOperations.PositionElementAddress;
         }
     }
 }

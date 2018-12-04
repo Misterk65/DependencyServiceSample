@@ -9,7 +9,7 @@ namespace DependencyServiceSample.Droid.Implementations
     {
          public string GetSignalStrength()
         {
-            throw new NotImplementedException();
+            return FileOperations.InformationElementSignal + " dB";
         }
     }
 }

@@ -26,6 +26,18 @@ namespace DependencyServiceSample.Droid
 
             Tm = (TelephonyManager)GetSystemService(TelephonyService);
             Declaration.ProviderString = Tm.NetworkOperatorName;
+            Initial();
+        }
+
+        public void Initial()
+        {
+            FileOperations.PositionElementAddress = "Granitstrasse 9, 44627 Herne";
+            FileOperations.InformationElementMcc = "001";
+            FileOperations.InformationElementMnc = "001";
+            FileOperations.InformationElementNwType = "UMTS";
+            FileOperations.InformationElementSignal = "98";
+            FileOperations.InformationElementDistance = 36.4;
+            FileOperations.InformationElementRoaming = true;
         }
     }
 }
