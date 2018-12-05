@@ -54,9 +54,11 @@
     <PackageReference Include="Xamarin.Android.Support.v4" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.CardView" Version="27.0.2.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2.1" />
+    <PackageReference Include="Xamarin.Essentials">
+      <Version>1.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Declaration.cs" />
     <Compile Include="Implementations\GetNwProvImplementation.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Implementations\GetProvInfImplementation.cs" />
     <Compile Include="Implementations\GetSigStrenImplementation.cs" />
     <Compile Include="FileOperations.cs" />
+    <Compile Include="Implementations\GetLiveAccuracyImplementation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

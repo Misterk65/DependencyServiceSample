@@ -9,7 +9,7 @@ namespace DependencyServiceSample.Droid.Implementations
     {
        public string GetLiveKph()
         {
-            throw new NotImplementedException();
+            return FileOperations.PositionElementSpeed.ToString();
         }
     }
 }

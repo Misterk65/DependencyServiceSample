@@ -10,7 +10,7 @@ namespace DependencyServiceSample.Droid.Implementations
     {
        public string GetLiveHeading()
         {
-            throw new NotImplementedException();
+            return FileOperations.PositionElementHead.ToString();
         }
     }
 }

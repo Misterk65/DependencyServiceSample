@@ -3,15 +3,12 @@ namespace DependencyServiceSample.Droid
 {
     public class FileOperations
     {
-        //public static double PositionElementLat { get; set; }
-
-        //public static double PositionElementLng { get; set; }
-
+        public static string ProviderString { get; set; }
         //public static double PositionElementalt { get; set; }
 
-        //public static double PositionElementSpeed { get; set; }
+        public static double PositionElementSpeed { get; set; }
 
-        //public static double PositionElementHead { get; set; }
+        public static double PositionElementHead { get; set; }
 
         public static string PositionElementAddress { get; set; }
 
@@ -19,8 +16,6 @@ namespace DependencyServiceSample.Droid
 
         public static string InformationElementMcc { get; set; }
 
-        //public static bool Lastwrite { get; set; }
-        //public static bool WriteKmlCaption { get; set; }
         public static string InformationElementMnc { get; set; }
 
         public static string InformationElementNwType { get; set; }
@@ -44,7 +39,7 @@ namespace DependencyServiceSample.Droid
 
         //private static int LineControl { get; set; }
 
-        //public static double InformationElementAccuracy { get; set; }
+        public static double InformationElementAccuracy { get; set; }
 
     }
 

@@ -25,7 +25,7 @@ namespace DependencyServiceSample.Droid
             LoadApplication(new App());
 
             Tm = (TelephonyManager)GetSystemService(TelephonyService);
-            Declaration.ProviderString = Tm.NetworkOperatorName;
+            FileOperations.ProviderString = Tm.NetworkOperatorName;
             Initial();
         }
 
@@ -38,6 +38,9 @@ namespace DependencyServiceSample.Droid
             FileOperations.InformationElementSignal = "98";
             FileOperations.InformationElementDistance = 36.4;
             FileOperations.InformationElementRoaming = true;
+            FileOperations.PositionElementHead = 269.5;
+            FileOperations.PositionElementSpeed = 102.1;
+            FileOperations.InformationElementAccuracy = 8;
         }
     }
 }

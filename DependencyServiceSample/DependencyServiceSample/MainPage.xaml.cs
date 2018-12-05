@@ -2,12 +2,14 @@
 using System.Timers;
 using DependencyServiceSample.Interfaces;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace DependencyServiceSample
 {
     public partial class MainPage : ContentPage
     {
-        private static System.Timers.Timer aTimer;
+        private static Timer aTimer;
+
 
         public MainPage()
         {
@@ -61,6 +63,37 @@ namespace DependencyServiceSample
             var nwProvInf = DependencyService.Get<IGetProvInf>();
             var sigStren = DependencyService.Get<IGetSigStren>();
             var curLoc = DependencyService.Get<IGetLocation>();
+            var curAcc = DependencyService.Get<IGetLiveAccuracy>();
+            var curHnd = DependencyService.Get<IGetLiveHnd>();
+            var curSpeed = DependencyService.Get<IGetLiveKph>();
+
+            if (curSpeed.GetLiveKph() != null)
+            {
+                LbLKph.Text = curSpeed.GetLiveKph() + " Kph";
+            }
+            else
+            {
+                LbLKph.Text = "0.0 Kph";
+            }
+
+            if (curHnd.GetLiveHeading() != null)
+            {
+                LbLHnd.Text = curHnd.GetLiveHeading() + " deg";
+            }
+            else
+            {
+                LbLHnd.Text = "0.0 deg";
+            }
+
+            if (curAcc.GetLiveAccuracy() != null)
+            {
+                LblOperation.Text = "Operation - Accuracy -> " + 
+                curAcc.GetLiveAccuracy() + " m";
+            }
+            else
+            {
+                LblOperation.Text = "Operation";
+            }
 
             if (curLoc.GetLocation() !=null)
             {

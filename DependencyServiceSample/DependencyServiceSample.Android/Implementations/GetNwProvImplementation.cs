@@ -13,7 +13,7 @@ namespace DependencyServiceSample.Droid.Implementations
 
         public string GetProviderName()
         {
-            return Declaration.ProviderString;
+            return FileOperations.ProviderString;
         }
     }
 }
